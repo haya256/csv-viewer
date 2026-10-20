@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSVビューワー</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <h1>CSVビューワー</h1>
+    <label class="file-button">
+      ファイルを開く
+      <input type="file" id="fileInput" accept=".csv,.tsv,.txt">
+    </label>
+    <label>
+      文字コード
+      <select id="encodingSelect">
+        <option value="auto">自動</option>
+        <option value="utf-8">UTF-8</option>
+        <option value="shift_jis">Shift_JIS</option>
+      </select>
+    </label>
+    <input type="search" id="searchInput" placeholder="キーワード検索" disabled>
+    <button type="button" id="addFilterButton" disabled>＋条件を追加</button>
+  </header>
+
+  <section id="filterList" class="filter-list"></section>
+
+  <div id="status" class="status">CSVファイルを選択するか、この画面にドラッグ&ドロップしてください。データはブラウザ内だけで扱われ、どこにも送信・保存されません。</div>
+
+  <main id="tableContainer" class="table-container">
+    <div id="dropHint" class="drop-hint">ここにCSVファイルをドロップ</div>
+  </main>
+
+  <div class="more-area">
+    <button type="button" id="moreButton" hidden>さらに表示</button>
+  </div>
+
+  <div id="dropOverlay" class="drop-overlay" hidden>ドロップして読み込み</div>
+</body>
+</html>
